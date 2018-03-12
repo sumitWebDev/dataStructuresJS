@@ -1,0 +1,35 @@
+//Initializing Stack 
+function Stack() {
+    this._size = 0;
+    this._storage = {};
+	return this._size
+}
+//Initializing Stack ends
+
+//Pushing data to Stack
+Stack.prototype.push = function(data){
+var size = ++this._size ;
+this._storage[size] = data;
+return size;
+}
+//Pushing data to Stack ends
+
+//Popping data from Stack 
+Stack.prototype.pop = function(){
+var size = this._size;
+var deletedItem;
+if(size){
+console.log(size);
+deletedItem = this._storage[size]
+
+delete this._storage[size];
+this._size--;
+return deletedItem;
+}
+   }
+//Popping data from Stack
+var stackImplement = new Stack();
+stackImplement.push(50);
+stackImplement.push(50);
+stackImplement.push(50);
+stackImplement.pop();
