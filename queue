@@ -1,0 +1,49 @@
+//Initializing Queue Object//
+function Queue(){
+this._size = 0 ; 
+this.obj = {} ;
+this.deletedIndex = 1;
+this.currentIndex = 0;
+}
+//Initializing Queue Object Ends//
+
+//Enqueue Code//
+Queue.prototype.enqueue = function(data){
+var size= ++this._size;
+this.currentIndex = size;
+if(this.obj[size] == undefined){
+this.obj[size] = data;
+return size;
+}
+   }
+//Enque Code ends//
+
+//Dequeue Code
+Queue.prototype.dequeue = function(){
+var deletedItem = this.obj[this.deletedIndex];
+delete this.obj[this.deletedIndex];
+this.deletedIndex += 1;
+return deletedItem;
+}
+//Dequeue Code Ends//
+var queue = new Queue();
+queue.enqueue(10);
+queue.enqueue(20);
+queue.enqueue(30);
+queue.enqueue(40);
+
+queue.dequeue();
+queue.dequeue();
+queue.dequeue();
+
+queue.enqueue(20);
+queue.enqueue(30);
+queue.enqueue(50);
+
+queue.dequeue();
+queue.dequeue();
+console.log(queue);
+
+
+
+
