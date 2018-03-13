@@ -2,7 +2,6 @@
 function Stack() {
     this._size = 0;
     this._storage = {};
-	return this._size
 }
 //Initializing Stack ends
 
@@ -10,7 +9,6 @@ function Stack() {
 Stack.prototype.push = function(data){
 var size = ++this._size ;
 this._storage[size] = data;
-return size;
 }
 //Pushing data to Stack ends
 
@@ -28,8 +26,13 @@ return deletedItem;
 }
    }
 //Popping data from Stack
-var stackImplement = new Stack();
-stackImplement.push(50);
-stackImplement.push(50);
-stackImplement.push(50);
-stackImplement.pop();
+var stack = new Stack();
+stack.push(10);
+stack.push(20);
+stack.push(30);
+stack.pop();
+stack.push(40);
+stack.pop();
+stack.pop();
+stack.push(50);
+console.log(stack);
