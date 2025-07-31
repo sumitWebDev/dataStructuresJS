@@ -1,17 +1,14 @@
 function insertion_sort(arr){
     let n = arr.length;
-    for(let i =0; i<n-1;i++){
-        let min = i;
-        for (let j = i; j>0;j--){
-            if(arr[min] > arr[j]){
-                min = j
-            }
+    let current,prev;
+    for(let i =1; i<n;i++){
+        current = arr[i];
+        prev = i-1; 
+        while(current < arr[prev] && prev >= 0){
+            arr[prev+1] = arr[prev];
+            prev--;
         }
-        if(min !== i ) { // Improvement
-            arr[i] = arr[min]^arr[i]
-            arr[min] = arr[min]^arr[i]
-            arr[i] = arr[min]^arr[i]
-        }
+        arr[prev+1] = current
 
     }
     return arr
