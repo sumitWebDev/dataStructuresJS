@@ -1,20 +1,20 @@
-function selection_sort(arr){
+function insertion_sort(arr){
     let n = arr.length;
     for(let i =0; i<n-1;i++){
         let min = i;
-        for (let j = i+1; j<n;j++){
+        for (let j = i; j>0;j--){
             if(arr[min] > arr[j]){
                 min = j
             }
         }
         if(min !== i ) { // Improvement
-            arr[i] = arr[i]^arr[min]
-            arr[min] = arr[i]^arr[min]
-            arr[i] = arr[i]^arr[min]
+            arr[i] = arr[min]^arr[i]
+            arr[min] = arr[min]^arr[i]
+            arr[i] = arr[min]^arr[i]
         }
 
     }
     return arr
 }
 
-console.log(selection_sort([5,4,1,2,-9]))
+console.log(insertion_sort([5,4,1,2,-9]))
