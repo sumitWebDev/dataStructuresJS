@@ -30,4 +30,4 @@ function merge_sort(arr){
     return merge (left,right)
 }
 
-console.log(merge_sort([1,3,5,7,2,4,8,9]))
+console.log(merge_sort([8,4,5,6,9,1,3,6]))
