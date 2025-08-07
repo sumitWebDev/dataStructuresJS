@@ -1,5 +1,12 @@
+var MyLinkedList = function() {
+    this.head = null;
+    this.size= 0;
+};
 
-
+var Node = function(val){
+    this.val = val;
+    this.next = null;
+}
 
 //Add new node at head
 MyLinkedList.prototype.addAtHead = function (val){
@@ -27,38 +34,72 @@ MyLinkedList.prototype.addAtTail = function (val){
 }
 
 //Add new node at an Index
-MyLinkedList.prototype.addAtTail = function (index,val){
+MyLinkedList.prototype.addAtIndex = function (index,val){
+    if(index<0 || index > this.size) return
     if(index == 0){
-        addAtHead(val);
+        this.addAtHead(val);
         return
     }
     else if(index == this.size){
-        addAtTail(val);
+        this.addAtTail(val);
         return
     }
     else{
         let newNode = new Node(val);
         let current = this.head;
-        while (current != index-1){
+        let count = 0;
+        while (count < index-1){
            current = current.next;
-        }
+            count++;
+        }   
         newNode.next = current.next;
         current.next = newNode 
         this.size++;
     }
-
-}
-
-var Node = function(val){
-    this.val = val;
-    this.next = null;
 }
 
 
-var MyLinkedList = function() {
-    this.head = null;
-    this.size= 0;
-};
+//Get an Element at an Index
+MyLinkedList.prototype.get = function (index){
+    let current = this.head;
+    if(index < 0 || index >= this.size) return -1;
+    let count = 0;
+        while(count < index){
+            current = current.next;
+            count++
+        }
+        return current.val;
+}
+
+
+//Delete an Index 
+MyLinkedList.prototype.delete = function (index){
+    if(index<0 || index >= this.size) return
+    if(index == 0){this.head = this.head.next}
+    else{
+        let current = this.head;
+        let count = 0;
+        while(count < index-1){
+            current = current.next;
+            count++
+        }
+        current.next = current.next.next;
+    }
+    this.size--;
+}
+
+
+
+
+
 
 var obj = new MyLinkedList();
-obj.addAtHead(5) 
+obj.addAtHead(7); 
+obj.addAtHead(2);
+obj.addAtHead(1);
+obj.addAtIndex(3,3);
+// obj.delete(2);
+// obj.addAtHead(6);
+// obj.addAtTail(4);
+console.log(obj); 
+console.log(obj.get(3)); 
