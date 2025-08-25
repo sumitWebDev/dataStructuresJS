@@ -3,7 +3,6 @@
 //Approach 1
 var isPowerOfFour = function(n) {
     let power = 0;
-    
     while(Math.pow(4,power) <= n){
         if(Math.pow(4,power) === n ) return true
         power +=1
