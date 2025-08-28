@@ -20,7 +20,8 @@ var isPalindrome = function(head) {
     return true
 };
 
-
+// Approach 2 - Find middle of linkedlist and reverse
+// Time complexity - O(n), Space Complexity - O(1)
 var isPalindrome2 = function(head) {
 
     //Finding the middle element
@@ -43,7 +44,7 @@ var isPalindrome2 = function(head) {
     //Checking for Palindrome
     let firstList = head;
     let secondList = prev;
-    
+
     while (secondList){
         if(firstList.val != secondList.val){
             return false
@@ -59,14 +60,8 @@ console.log(isPalindrome2(({
     next: {
       val: 2,
       next: {
-        val: 4,
-        next:{
-            val: 2,
-            next: {
-                val: 3,
-                next: null
-            }
-        }
+        val: 2,
+        next:null
      }
     }
   })))
